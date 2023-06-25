@@ -40,7 +40,7 @@
         </div>
 
 
-        @if (auth()->user()->role != 1)
+        @if (auth()->user()->role == 1)
             <hr class="my-10">
 
             <div class="flex justify-center">
