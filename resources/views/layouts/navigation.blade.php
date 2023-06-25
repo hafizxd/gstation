@@ -36,7 +36,7 @@
                                 <img src="{{ asset('/assets/icons/profile(1).svg') }}" alt="" class="h-9">
                                 <h5>
                                     @if (auth()->user()->role == 1)
-                                        GM
+                                        <span class="text-red-500">GM</span>
                                     @endif {{ auth()->user()->username }}
                                 </h5>
                             </div>

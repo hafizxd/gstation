@@ -7,9 +7,8 @@
                 </div>
                 <h4 class="font-medium text-xl">
                     @if ($user->role == 1)
-                        GM
-                    @endif
-                    {{ $user->username }}
+                        <span class="text-red-500">GM</span>
+                    @endif {{ $user->username }}
                 </h4>
                 <h4 class="font-medium text-lg">{{ $user->email }}</h4>
 
@@ -37,7 +36,7 @@
                             <h4 class="font-medium text-lg">{{ $video->title }}</h4>
                             <p class="font-thin text-sm text-gray-200">
                                 @if ($video->user->role == 1)
-                                    GM
+                                    <span class="text-red-500">GM</span>
                                 @endif {{ $video->user->username }}
                             </p>
                         </div>

@@ -25,7 +25,7 @@
             <div class="mt-2 flex gap-3">
                 <h6 class="text-md font-light text-gray-300">
                     @if ($video->user->role == 1)
-                        GM
+                        <span class="text-red-500">GM</span>
                     @endif {{ $video->user->username }}
                 </h6>
                 @if ($video->user->id != auth()->user()->id)

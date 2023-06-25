@@ -11,7 +11,7 @@
                             <div>
                                 <h4 class="font-medium text-xl">
                                     @if ($user->role == 1)
-                                        GM
+                                        <span class="text-red-500">GM</span>
                                     @endif {{ $user->username }}
                                 </h4>
                             </div>
