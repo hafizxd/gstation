@@ -36,7 +36,7 @@
                 @endif
             </div>
 
-            <p class="mt-5 text-sm font-extralight text-gray-300">{{ $video->description }}</p>
+            <p class="mt-5 text-sm font-extralight text-gray-300">{!! nl2br($video->description) !!}</p>
         </div>
 
 

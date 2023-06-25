@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/css/style.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="min-h-screen font-sans bg-stone-950 flex justify-center items-center">
