@@ -40,25 +40,27 @@
         </div>
 
 
-        <hr class="my-10">
+        @if (auth()->user()->role != 1)
+            <hr class="my-10">
 
-        <div class="flex justify-center">
-            <form action="{{ route('video.destroy-by-admin', $video->id) }}" method="POST" class="w-96 flex flex-col justify-center">
-                <h1 class="text-center mb-5 text-lg">Hapus Video</h1>
+            <div class="flex justify-center">
+                <form action="{{ route('video.destroy-by-admin', $video->id) }}" method="POST" class="w-96 flex flex-col justify-center">
+                    <h1 class="text-center mb-5 text-lg">Hapus Video</h1>
 
-                @csrf
-                @method('DELETE')
+                    @csrf
+                    @method('DELETE')
 
-                {{-- Deskripsi --}}
-                <div class="mb-5">
-                    <div class="p-0 flex bg-cgray text-black">
-                        <textarea id="reason" name="reason" rows="5" placeholder="Masukkan Alasan" required class="border-none bg-transparent m-0 w-full h-full focus:border-none focus:outline-none focus:ring-0 placeholder-slate-600">{{ old('description') }}</textarea>
+                    {{-- Deskripsi --}}
+                    <div class="mb-5">
+                        <div class="p-0 flex bg-cgray text-black">
+                            <textarea id="reason" name="reason" rows="5" placeholder="Masukkan Alasan" required class="border-none bg-transparent m-0 w-full h-full focus:border-none focus:outline-none focus:ring-0 placeholder-slate-600">{{ old('description') }}</textarea>
+                        </div>
+                        <x-input-error :messages="$errors->get('reason')" class="mt-2" />
                     </div>
-                    <x-input-error :messages="$errors->get('reason')" class="mt-2" />
-                </div>
 
-                <input type="submit" value="Kirim Alasan & Hapus" class="bg-red-500 py-2 px-3 text-sm text-white hover:cursor-pointer">
-            </form>
-        </div>
+                    <input type="submit" value="Kirim Alasan & Hapus" class="bg-red-500 py-2 px-3 text-sm text-white hover:cursor-pointer">
+                </form>
+            </div>
+        @endif
     </div>
 </x-app-layout>
