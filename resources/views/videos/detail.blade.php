@@ -23,7 +23,11 @@
             </div>
 
             <div class="mt-2 flex gap-3">
-                <h6 class="text-md font-light text-gray-300">{{ $video->user->username }}</h6>
+                <h6 class="text-md font-light text-gray-300">
+                    @if ($video->user->role == 1)
+                        GM
+                    @endif {{ $video->user->username }}
+                </h6>
                 @if ($video->user->id != auth()->user()->id)
                     <form action="{{ route('user.toggle-follow', $video->user->id) }}" method="POST">
                         @csrf

@@ -6,7 +6,7 @@
                     <img src="{{ asset('/assets/icons/profile.svg') }}" alt="" class="min-w-full">
                 </div>
                 <h4 class="font-medium text-xl">
-                    @if (auth()->user()->role == 1)
+                    @if ($user->role == 1)
                         GM
                     @endif
                     {{ $user->username }}
@@ -35,7 +35,11 @@
                                 <img src="{{ asset('/storage/uploads/thumbnails/' . $video->thumbnail) }}" alt="" class="min-h-full">
                             </div>
                             <h4 class="font-medium text-lg">{{ $video->title }}</h4>
-                            <p class="font-thin text-sm text-gray-200">{{ $video->user->username }}</p>
+                            <p class="font-thin text-sm text-gray-200">
+                                @if ($video->user->role == 1)
+                                    GM
+                                @endif {{ $video->user->username }}
+                            </p>
                         </div>
                     </a>
                 @empty

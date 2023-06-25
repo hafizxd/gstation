@@ -34,7 +34,11 @@
                         <x-slot name="content">
                             <div class="flex justify-start items-center gap-3 text-white mb-2 px-2">
                                 <img src="{{ asset('/assets/icons/profile(1).svg') }}" alt="" class="h-9">
-                                <h5>{{ auth()->user()->username }}</h5>
+                                <h5>
+                                    @if (auth()->user()->role == 1)
+                                        GM
+                                    @endif {{ auth()->user()->username }}
+                                </h5>
                             </div>
                             <hr>
 

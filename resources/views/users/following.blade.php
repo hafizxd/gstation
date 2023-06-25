@@ -9,7 +9,11 @@
                                 <img src="{{ asset('/assets/icons/profile.svg') }}" alt="" class="min-w-full">
                             </div>
                             <div>
-                                <h4 class="font-medium text-xl">{{ $user->username }}</h4>
+                                <h4 class="font-medium text-xl">
+                                    @if ($user->role == 1)
+                                        GM
+                                    @endif {{ $user->username }}
+                                </h4>
                             </div>
                         </div>
                     </a>
