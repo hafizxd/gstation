@@ -47,7 +47,7 @@ class VideoController extends Controller
     }
 
     public function detail($id) {
-        $video = Video::with('user')->findOrFail($id);
+        $video = Video::with(['user', 'replies.nestedReplies'])->findOrFail($id);
 
         return view('videos.detail', compact('video'));
     }

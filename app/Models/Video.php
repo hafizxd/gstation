@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Reply;
 use App\Models\User;
 
 class Video extends Model
@@ -19,5 +19,9 @@ class Video extends Model
 
     public function favoritedBy() {
         return $this->belongsToMany(User::class, 'favorites');
+    }
+
+    public function replies() {
+        return $this->hasMany(Reply::class);
     }
 }

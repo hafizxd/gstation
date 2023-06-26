@@ -30,4 +30,8 @@
             <a href="{{ route('register') }}" class="bg-cgray w-full text-center align-middle py-2">Register</a>
         </div>
     </form>
+
+    <div class="my-5 text-center">
+        <a href="{{ route('password.request') }}" class="text-stone-400 text-md">Lupa password</a>
+    </div>
 </x-guest-layout>

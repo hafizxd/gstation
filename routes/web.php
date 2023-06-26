@@ -3,6 +3,7 @@
 use App\Http\Controllers\DeletedReasonController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/{id}/edit', [VideoController::class, 'edit'])->name('video.edit');
         Route::delete('/{id}/destroy', [VideoController::class, 'destroy'])->name('video.destroy');
         Route::delete('/{id}/destroy-by-admin', [VideoController::class, 'destroyByAdmin'])->name('video.destroy-by-admin');
+
+        Route::post('/{id}/reply', [ReplyController::class, 'store'])->name('reply.store');
     });
+
+    Route::group(['prefix' => 'reply'], function() {
+        Route::delete('/{id}/destroy', [ReplyController::class, 'destroy'])->name('reply.destroy');
+        Route::post('/{id}/nested-reply', [ReplyController::class, 'nestedStore'])->name('nested-reply.store');
+    });
+
+    Route::delete('nested-reply/{id}/delete', [ReplyController::class, 'nestedDestroy'])->name('nested-reply.destroy');
 
     Route::group(['prefix' => 'favorites'], function() {
         Route::get('/', [FavoriteController::class, 'index'])->name('favorite.index');
