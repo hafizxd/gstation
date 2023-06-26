@@ -108,7 +108,7 @@
                                 <small class="text-xs text-gray-500">{{ $reply->created_at->format('d F Y H:i') }}</small>
                             </div>
 
-                            <div>
+                            <div class="mb-3">
                                 <div class="mb-3">
                                     <div class="font-normal text-xs sm:text-sm text-gray-300">
                                         <p>{!! nl2br(e($reply->body)) !!}</p>
